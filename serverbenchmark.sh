@@ -38,7 +38,7 @@ echo "========== Hard Disk Info =========="
 echo "Now Testing I/O Speed. This might take a while..."
 io=$( (dd if=/dev/zero of=test_$$ bs=64k count=16k conv=fdatasync &&rm -f test_$$) 2>&1 | tail -1| awk '{ print $(NF-1) $NF }')
 echo "I/O speed : $io"
-hdds=$(df -h | awk '{if ($1 != "Filesystem") print $1 "\t" $5}')
+hdds=$(df -h | awk '{if ($1 != "Filesystem") print $1 "\t" $2}')
 echo "Hard Disk Space:"
 echo "$hdds"
 echo "======= END of Hard Disk Info ======="
